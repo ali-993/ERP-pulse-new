@@ -50,6 +50,21 @@ export const CLIENT_ENDPOINTS = {
   employeeResendInvitation: (id) => `/client/employees/${id}/resend_invitation/`,
   roles: '/client/roles/',
   settings: '/client/settings/',
+  customers: '/client/customers/',
+  customer: (id) => `/client/customers/${id}/`,
+    customerActivate: (id) => `/client/customers/${id}/activate/`,
+    customerDeactivate: (id) => `/client/customers/${id}/deactivate/`,
+  vendors: '/client/vendors/',
+  vendor: (id) => `/client/vendors/${id}/`,
+    vendorActivate: (id) => `/client/vendors/${id}/activate/`,
+    vendorDeactivate: (id) => `/client/vendors/${id}/deactivate/`,
+  partners: '/client/partners/',
+  partner: (id) => `/client/partners/${id}/`,
+  partnerActivate: (id) => `/client/partners/${id}/activate/`,
+  partnerDeactivate: (id) => `/client/partners/${id}/deactivate/`,
+  customersNextId: '/client/customers/next-id/',
+  vendorsNextId: '/client/vendors/next-id/',
+  partnersNextId: '/client/partners/next-id/',
 }
 
 export const SUPERADMIN_ENDPOINTS = {

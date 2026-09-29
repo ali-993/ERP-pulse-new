@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext.jsx'
 import { clientApi } from '../../services/client.js'
 
+
 /**
  * Reusable Client Company Portal layout.
  * Top navbar + profile menu + page content wrapper

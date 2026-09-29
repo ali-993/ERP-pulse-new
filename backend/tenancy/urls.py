@@ -8,8 +8,14 @@ from tenancy.views import (
     CompanySettingsView,
 )
 
+from contacts.views import CustomerViewSet, VendorViewSet, PartnerViewSet
+
 router = DefaultRouter()
 router.register(r'employees', CompanyEmployeeViewSet, basename='client-employee')
+
+router.register(r'customers', CustomerViewSet, basename='client-customer')
+router.register(r'vendors', VendorViewSet, basename='client-vendor')
+router.register(r'partners', PartnerViewSet, basename='client-partner')
 urlpatterns = [
     path('me/', ClientMeView.as_view(), name='client-me'),
     path('roles/', ClientRoleListView.as_view(), name='client-roles'),

@@ -33,6 +33,65 @@ export const clientApi = {
   resendEmployeeInvitation: (id) =>
     apiClient.post(CLIENT_ENDPOINTS.employeeResendInvitation(id)).then(unwrap),
 
+  // ── Customers (company-scoped /client/*) ─────────────────────
+  // NOTE: backend `customers` app does not exist yet — these call a
+  // `/client/customers/` contract that mirrors the employees endpoints
+  // below. Wire up the Django app + serializer to match this shape.
+  listCustomers: (params) =>
+    apiClient.get(CLIENT_ENDPOINTS.customers, { params }).then(unwrap),
+  getCustomer: (id) => apiClient.get(CLIENT_ENDPOINTS.customer(id)).then(unwrap),
+  createCustomer: (payload) =>
+    apiClient.post(CLIENT_ENDPOINTS.customers, payload).then(unwrap),
+  updateCustomer: (id, payload) =>
+    apiClient.patch(CLIENT_ENDPOINTS.customer(id), payload).then(unwrap),
+    activateCustomer: (id) =>
+    apiClient.post(CLIENT_ENDPOINTS.customerActivate(id)).then(unwrap),
+  deactivateCustomer: (id) =>
+    apiClient.post(CLIENT_ENDPOINTS.customerDeactivate(id)).then(unwrap),
+  deleteCustomer: (id) =>
+    apiClient.delete(CLIENT_ENDPOINTS.customer(id)).then(unwrap),
+  getNextCustomerId: () => apiClient.get(CLIENT_ENDPOINTS.customersNextId).then(unwrap),
+
+  // ── Vendors (company-scoped /client/*) ─────────────────────
+  listVendors: (params) =>
+    apiClient.get(CLIENT_ENDPOINTS.vendors, { params }).then(unwrap),
+  getVendor: (id) => apiClient.get(CLIENT_ENDPOINTS.vendor(id)).then(unwrap),
+  createVendor: (payload) =>
+    apiClient.post(CLIENT_ENDPOINTS.vendors, payload).then(unwrap),
+  updateVendor: (id, payload) =>
+    apiClient.patch(CLIENT_ENDPOINTS.vendor(id), payload).then(unwrap),
+   getNextVendorId: () => apiClient.get(CLIENT_ENDPOINTS.vendorsNextId).then(unwrap),
+   activateVendor: (id) =>
+    apiClient.post(CLIENT_ENDPOINTS.vendorActivate(id)).then(unwrap),
+  deactivateVendor: (id) =>
+    apiClient.post(CLIENT_ENDPOINTS.vendorDeactivate(id)).then(unwrap),
+  deleteVendor: (id) =>
+    apiClient.delete(CLIENT_ENDPOINTS.vendor(id)).then(unwrap),
+
+  // ── Partners (company-scoped /client/*) ─────────────────────
+listPartners: (params) =>
+  apiClient.get(CLIENT_ENDPOINTS.partners, { params }).then(unwrap),
+
+getPartner: (id) =>
+  apiClient.get(CLIENT_ENDPOINTS.partner(id)).then(unwrap),
+
+createPartner: (payload) =>
+  apiClient.post(CLIENT_ENDPOINTS.partners, payload).then(unwrap),
+
+updatePartner: (id, payload) =>
+  apiClient.patch(CLIENT_ENDPOINTS.partner(id), payload).then(unwrap),
+
+activatePartner: (id) =>
+  apiClient.post(CLIENT_ENDPOINTS.partnerActivate(id)).then(unwrap),
+
+deactivatePartner: (id) =>
+  apiClient.post(CLIENT_ENDPOINTS.partnerDeactivate(id)).then(unwrap),
+
+deletePartner: (id) =>
+  apiClient.delete(CLIENT_ENDPOINTS.partner(id)).then(unwrap),
+
+getNextPartnerId: () => apiClient.get(CLIENT_ENDPOINTS.partnersNextId).then(unwrap),
+
   // ── Roles (company-scoped) ──────────────────────────────────
   listRoles: () => apiClient.get(CLIENT_ENDPOINTS.roles).then(unwrap),
 

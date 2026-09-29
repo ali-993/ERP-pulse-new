@@ -25,6 +25,12 @@ import PublicHomePage from '../pages/public/HomePage.jsx'
 // Client Company Portal
 import ClientDashboardPage from '../pages/client/DashboardPage.jsx'
 import ClientEmployeesPage from '../pages/client/EmployeesPage.jsx'
+import CustomersPage from '../pages/client/CustomersPage.jsx'
+import CreateCustomerPage from '../pages/client/CreateCustomerPage.jsx'
+import VendorsPage from '../pages/client/VendorsPage.jsx'
+import CreateVendorPage from '../pages/client/CreateVendorPage.jsx'
+import PartnersPage from '../pages/client/PartnersPage.jsx'
+import CreatePartnerPage from '../pages/client/CreatePartnerPage.jsx'
 import ClientCompanySettingsPage from '../pages/client/CompanySettingsPage.jsx'
 import CenterTabsPage from '../pages/client/CenterTabsPage.jsx'
 import CenterCategoriesPage from '../pages/client/CenterCategoriesPage.jsx'
@@ -204,6 +210,57 @@ export default function AppRoutes() {
             <ClientEmployeesPage />
         }
       />
+      <Route
+        path="/app/customers"
+        element={
+          <ProtectedRoute requiredRole="client">
+            <CustomersPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/app/customers/new"
+        element={
+          <ProtectedRoute requiredRole="client">
+            <CreateCustomerPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/app/vendors"
+        element={
+          <ProtectedRoute requiredRole="client">
+            <VendorsPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/app/vendors/new"
+        element={
+          <ProtectedRoute requiredRole="client">
+            <CreateVendorPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+  path="/app/partners"
+  element={
+    <ProtectedRoute requiredRole="client">
+      <PartnersPage />
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/app/partners/new"
+  element={
+    <ProtectedRoute requiredRole="client">
+      <CreatePartnerPage />
+    </ProtectedRoute>
+  }
+/>
+
       <Route
         path="/app/settings"
         element={

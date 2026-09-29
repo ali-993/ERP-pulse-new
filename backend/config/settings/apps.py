@@ -32,6 +32,7 @@ LOCAL_APPS = [
     "monitoring",
     "ocr",
     "transactions",
+    "contacts",
     "superadmin",
     "invitations",
     "subscriptions",
